@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { clearTokens} from '../utils/token'
-import { login, logout } from './authThunk'
+import { login, logout, signin } from './authThunk'
 
 export interface AuthState {
   status: string
@@ -34,6 +34,20 @@ const authSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    builder.addCase(signin.pending, (state) => {
+      state.error = null
+      state.status = 'loading'
+    })
+    builder.addCase(signin.fulfilled, (state, action: PayloadAction<any>) => {
+      const { user } = action.payload
+      state.isAuthenticated = true
+      state.user = user
+      state.status = 'succeeded'
+    })
+    builder.addCase(signin.rejected, (state, action: PayloadAction<any>) => {
+      state.error = action?.payload
+      state.status = 'failed'
+    })
     builder.addCase(login.pending, (state) => {
       state.error = null
       state.status = 'loading'

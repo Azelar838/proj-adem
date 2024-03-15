@@ -1,6 +1,7 @@
 @use '../../../../shared/assets/styles/abstracts/mixins' as *;
 .card-balance {
   position: relative;
+
   width: 25rem;
   height: 30rem;
   @include GlassEffect();

@@ -3,7 +3,25 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { supabase } from '@src/modules/shared/utils/supabase'
 import { message } from 'antd'
 import { clearTokens } from '../utils/token'
+ 
+export const signin = createAsyncThunk('auth/signin', async (_, { rejectWithValue }) => {
+  try {
+    const response = await supabase.auth.signInWithOAuth({
+      provider: 'github',
+      options: {
+        redirectTo: `/home`,
+      }
+    })
+    if (!response.error) {
+      return response.data
+    }
 
+    throw new Error(response?.error?.message)
+  } catch (err: any) {
+    return rejectWithValue(err)
+  }
+})
+ // sign in with github
 export const login = createAsyncThunk('auth/login', async (_, { rejectWithValue }) => {
   try {
     const response = await supabase.auth.getUser()
