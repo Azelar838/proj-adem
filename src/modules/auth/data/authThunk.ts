@@ -3,13 +3,15 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { supabase } from '@src/modules/shared/utils/supabase'
 import { message } from 'antd'
 import { clearTokens } from '../utils/token'
+import { PATH } from '@src/modules/auth/routes/paths'
  
 export const signin = createAsyncThunk('auth/signin', async (_, { rejectWithValue }) => {
+  const location = window.location
   try {
     const response = await supabase.auth.signInWithOAuth({
       provider: 'github',
       options: {
-        redirectTo: `/home`,
+        redirectTo: `${location.origin}${PATH.HOME}`,
       }
     })
     if (!response.error) {

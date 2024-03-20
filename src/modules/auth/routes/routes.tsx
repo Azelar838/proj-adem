@@ -5,6 +5,7 @@ import { RouteProps } from 'react-router-dom'
 import GuestGuard from '../../shared/guards/GuestGuard'
 import { PATH } from './paths'
 import UniverseWrapper from '@src/modules/shared/layout/UniverseWrapper'
+import AuthGuard from '@src/modules/shared/guards/AuthGuard'
 
 
 type RouteConfig = {
@@ -23,14 +24,14 @@ const routes: RouteConfig[] = [
     component: lazy(() => import('../features/Login/Login')),
     layout:(props:any)=><UniverseWrapper {...props} />, 
   },
+
   {
     exact: true,
-    guard: GuestGuard,
-    path: PATH.ROOT,
-    component: lazy(() => import('../features/Login/Login')),
+    guard: AuthGuard,
+    path: PATH.HOME,
+    component: lazy(() => import('../../shared/components/Pages/HomePage/home')),
     layout:(props:any)=><UniverseWrapper {...props} />, 
   },
-
 ]
 
 export default routes

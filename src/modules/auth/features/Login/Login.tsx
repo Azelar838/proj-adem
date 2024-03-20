@@ -8,7 +8,6 @@ const Login = () => {
 const dispatch=useAppDispatch()
   async function signInWithGithub() {
     dispatch(signin());
-    dispatch(login());
   }
 
   return (
