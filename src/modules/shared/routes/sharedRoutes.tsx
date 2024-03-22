@@ -16,6 +16,7 @@ const routes: RouteConfig[] = [
     path: '*',
     component: lazy(() => import('../features/NotFound/NotFound')),
   },
+
 ]
 
 export default routes

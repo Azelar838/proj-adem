@@ -1,11 +1,12 @@
 import GithubIcon from "@src/modules/shared/assets/icons/github"
 import CardBalance from "@src/modules/shared/components/Cards/Card-BALANCE/Card-balance"
 import { useAppDispatch } from "@src/modules/shared/store"
-import {signin } from "../../data/authThunk"
+import {signin} from "../../data/authThunk"
 const Login = () => {
 const dispatch=useAppDispatch()
   async function signInWithGithub() {
     dispatch(signin());
+
   }
 
   return (

@@ -29,7 +29,7 @@ const routes: RouteConfig[] = [
     exact: true,
     guard: AuthGuard,
     path: PATH.HOME,
-    component: lazy(() => import('../../shared/components/Pages/HomePage/home')),
+    component: lazy(() => import('../../Repositories/index')),
     layout:(props:any)=><UniverseWrapper {...props} />, 
   },
 ]
