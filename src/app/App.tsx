@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import { QueryClient, QueryClientProvider } from 'react-query'
-import {  useNavigate } from 'react-router-dom'
+import {  useLocation, useNavigate } from 'react-router-dom'
 
 const App = () => {
   const queryClient = new QueryClient()
@@ -15,13 +15,17 @@ const App = () => {
   const theme = useAppSelector((state) => state.theme.mode)
   const isAuthenticated = useAppSelector((state) => state.auth.isAuthenticated)
   const navigate = useNavigate()
-  useEffect(()=>{
-   if( !isAuthenticated ){ 
-    navigate(PATH.LOGIN)
-    }else{navigate(PATH.HOME)}
-    }, [isAuthenticated])
-
-
+  const location = useLocation()
+  const pathName = location.pathname
+  useEffect(() => {
+    if (pathName === '/' || !pathName) {
+      if (!isAuthenticated) {
+        navigate(PATH.LOGIN)
+      } else {
+        navigate(PATH.HOME)
+      }
+    }
+  }, [isAuthenticated, pathName])
   return (
     <div id={theme}>
       <Helmet>
