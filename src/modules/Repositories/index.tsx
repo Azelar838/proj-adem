@@ -16,7 +16,7 @@ export default function Repositores(){
        
       });
       if(isLoading){
-        return <div>Loading...</div>
+        return <div className="loading">Loading...</div>
       }
       return(
     
@@ -29,7 +29,7 @@ export default function Repositores(){
          <CardSkew autoColors={index + 1}>
            <div className="cardContent">
              <h6>{repo.name}</h6>
-             <p className="state">Public</p>
+             <p className="state">{repo.private ? 'Private' : 'Public'}</p>
            </div>
          </CardSkew>
        

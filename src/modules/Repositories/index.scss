@@ -1,31 +1,26 @@
-
-.card{
+.card {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     overflow: auto;
-    
-    
-}
-.cardContent{
+  }
+  .cardContent {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
-    
-}
-h6,.state{
+  }
+  h6,.state {
     color: white;
-}
-.state{
+  }
+  .state {
     margin-left: 5rem;
-   background-color: purple;
-   border-radius: 15px;
-   border-width: 40rem;
-   padding: 4px 1rem;
-   text-align: center;
-   
-}
+    background: linear-gradient(to right, #0e013a 0%, #0253f6 100%);
+    border-radius: 15px;
+    border-width: 40rem;
+    padding: 4px 1rem;
+    text-align: center;
+  }
