@@ -1,0 +1,31 @@
+
+.card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow: auto;
+    
+    
+}
+.cardContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    
+}
+h6,.state{
+    color: white;
+}
+.state{
+    margin-left: 5rem;
+   background-color: purple;
+   border-radius: 15px;
+   border-width: 40rem;
+   padding: 4px 1rem;
+   text-align: center;
+   
+}

@@ -10,7 +10,7 @@ export const signin = createAsyncThunk('auth/signin', async (_, { rejectWithValu
     const response = await supabase.auth.signInWithOAuth({ 
       provider: 'github',
       options: {
-        redirectTo: `${currentLocation}${PATH.HOME}`,
+        redirectTo: `${currentLocation}${PATH.LOGIN}`,
       },
     })
     if (!response.error) {

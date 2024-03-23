@@ -1,6 +1,7 @@
+import { login } from '@src/modules/auth/data/authThunk'
 import { PATH } from '@src/modules/auth/routes/paths'
 import routes, { renderRoutes } from '@src/modules/shared/routes'
-import { useAppSelector } from '@src/modules/shared/store'
+import { useAppDispatch, useAppSelector } from '@src/modules/shared/store'
 import { useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
@@ -15,12 +16,18 @@ const App = () => {
   const theme = useAppSelector((state) => state.theme.mode)
   const isAuthenticated = useAppSelector((state) => state.auth.isAuthenticated)
   const navigate = useNavigate()
+  const dispatch = useAppDispatch()
   const location = useLocation()
   const pathName = location.pathname
+ useEffect(()=>{
+  dispatch(login())
+ })
   useEffect(() => {
     if (pathName === '/' || !pathName) {
       if (!isAuthenticated) {
+       
         navigate(PATH.LOGIN)
+        
       } else {
         navigate(PATH.HOME)
       }

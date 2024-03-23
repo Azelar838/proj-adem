@@ -3,46 +3,44 @@ import { endpoints } from "../shared/store/routes/endpoints.routes";
 import { useQuery } from "react-query";
 import CardSkew from "../shared/components/Cards/Cards-SKEW/Card-skew";
 import NoData from "../shared/components/NoData";
+import { fetchUserRepositories } from "../shared/store/queries/repositories";
+import './index.scss'
+import Header from "../shared/components/Header";
+
 
 export default function Repositores(){
-    const fetchUserRepositories = async (Repos:string) => {
-        const response = await fetch(`https://api.github.com/${Repos}`);
-        if (!response.ok) {
-          throw new Error('Failed to fetch user repositories');
-        }
-        return response.json();
-      };
-
     const { data, isLoading } = useQuery({
-        queryFn: () => fetchUserRepositories (endpoints.getRepositories),
+        queryFn: () => fetchUserRepositories (),
         queryKey: ['Repos', {}],
         cacheTime: 1,
-        enabled: !!endpoints.getRepositories,
+       
       });
       if(isLoading){
         return <div>Loading...</div>
       }
       return(
-       <div>
-        {data?.map((repo:any,index:any) =>{
-          if(data.length() != 0){
-            return(
+    
+       
+       <div className="card">
+         <Header/>
+        {!data || data?.length===0?(<NoData title="No Projects" />): data?.map((repo:any,index:any) =>(
+
+          
          <CardSkew autoColors={index + 1}>
-           <div>
+           <div className="cardContent">
              <h6>{repo.name}</h6>
-             <p>{repo.description}</p>
+             <p className="state">Public</p>
            </div>
          </CardSkew>
+       
          
-         )}else{
-          return(
-            <div>
-              <NoData title="No Projects" />
-            </div>
-          )
-         }
-    
-       })}
+         
+         
+          
+        ))}
+       
+        
        </div>
+      
       );
 }
