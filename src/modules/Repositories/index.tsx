@@ -35,19 +35,19 @@ export default function Repositores(){
         {
         isLoading?( <LoadingScreen blur size="full"/>) : 
          
-         <div className="card">
+         <div className="card" >
        
         {!data || data?.length===0?(<NoData title="No Projects" />): data?.map((repo:any,index:any) =>(
 
-          
-          <CardSkew autoColors={index + 1}>
-           <div className="cardContent" onClick={()=>handleClick(repo.id)}>
+          <div onClick={()=>handleClick(repo.id)}>
+          <CardSkew autoColors={index + 1} >
+           <div className="cardContent" >
              <h6>{repo.name}</h6>
              <p className="state">{repo.visibility}</p>
            </div>
          </CardSkew>
-       
          
+         </div>
          
          
           
