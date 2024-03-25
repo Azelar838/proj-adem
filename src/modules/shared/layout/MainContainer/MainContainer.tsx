@@ -11,7 +11,7 @@ export default function MainContainer({ children, linkProps, style }: IMainConta
   return (
     <div className="main-container" style={{ ...style }}>
       <NavList {...linkProps} />
-      <ScrollContainer>{children}</ScrollContainer>
+      {children}
     </div>
   )
 }

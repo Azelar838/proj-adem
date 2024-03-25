@@ -28,8 +28,15 @@ const routes: RouteConfig[] = [
   {
     exact: true,
     guard: AuthGuard,
-    path: PATH.HOME,
+    path: PATH.REPOS,
     component: lazy(() => import('../../Repositories/index')),
+    layout:(props:any)=><UniverseWrapper {...props} />, 
+  },
+  {
+    exact: true,
+    guard: AuthGuard,
+    path: PATH.PULL,
+    component: lazy(() => import('../../SingleRepository/index')),
     layout:(props:any)=><UniverseWrapper {...props} />, 
   },
 ]

@@ -2,5 +2,6 @@ export const PATH = {
   ROOT: '/',
   LOGIN: '/login',
   REGISTER: '/register',
-  HOME: '/home',
+  REPOS: '/repositories',
+  PULL: '/repositories/:id/pull-requests'
 }

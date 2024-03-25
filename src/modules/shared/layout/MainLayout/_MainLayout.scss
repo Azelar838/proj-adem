@@ -2,8 +2,11 @@
 .main-layout {
   height: 100vh;
   @include Flex(column, start);
-
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
+
 
 
 
