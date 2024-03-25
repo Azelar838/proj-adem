@@ -6,6 +6,8 @@ import NoData from "../shared/components/NoData";
 import { fetchUserRepositories } from "../shared/store/queries/repositories";
 import './index.scss'
 import Header from "../shared/components/Header";
+import LoadingScreen from "../shared/components/Loading";
+import UniverseWrapper from "../shared/layout/UniverseWrapper";
 
 
 export default function Repositores(){
@@ -16,7 +18,10 @@ export default function Repositores(){
        
       });
       if(isLoading){
-        return <div className="loading">Loading...</div>
+        return (<div className="loading">
+          <Header/>
+          <LoadingScreen/>
+          </div>)
       }
       return(
     
