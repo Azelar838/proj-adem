@@ -19,8 +19,7 @@ export default function Repositores(){
       });
       if(isLoading){
         return (<div className="loading">
-          <Header/>
-          <LoadingScreen/>
+          <LoadingScreen blur size="full"/>
           </div>)
       }
       return(
