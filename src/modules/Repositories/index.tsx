@@ -39,7 +39,7 @@ export default function Repositores(){
        
         {!data || data?.length===0?(<NoData title="No Projects" />): data?.map((repo:any,index:any) =>(
 
-          <div onClick={()=>handleClick(repo.id)}>
+          <div onClick={()=>handleClick(repo.name)}>
           <CardSkew autoColors={index + 1} >
            <div className="cardContent" >
              <h6>{repo.name}</h6>
