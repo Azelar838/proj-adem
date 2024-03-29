@@ -14,25 +14,23 @@ export default function OnePullRequest({main_branch,second_branch,date_created,s
  const {user}=useAppSelector((state)=>state.auth)
  const {avatar_url}=user?.user_metadata || {}
   return(
-  <div className="OnePullRequest-container">
-    <div className="OnePullRequest-container__left-part">
-        <p className="OnePullRequest-container__left-part__title">Merge brach {second_branch} into {main_branch} <MergeIcon /></p>
-        <p className="OnePullRequest-container__left-part__date">Created At : {date_created} </p>
+  <div className="OnePullReq-cont">
+    <div className="OnePullReq-cont__left-part">
+        <p className="OnePullReq-cont_left-part_title">Merge brach {second_branch} into {main_branch} <MergeIcon /></p>
+        <p className="OnePullReq-cont_left-part_date">Created At : {date_created} </p>
     </div>
-    <div className="OnePullRequest-container__right-part">
-      <div className="OnePullRequest-container__right-part__icons">
-         <img className="OnePullRequest-container__right-part__icons__avatar" src={avatar_url} />
-         <div className="OnePullRequest-container__right-part__icons__isverified">
-            <p className={`OnePullRequest-container__right-part__icons__isverified__state${state==="open"?"__open":"__closed"}`}>{state}</p>
-            <img className="OnePullRequest-container__right-part__icons__isverified__icon" src={state==="open"? verified:rejected}  />
+    <div className="OnePullReq-cont__right-part">
+      <div className="OnePullReq-cont_right-part_icons">
+         <img className="OnePullReq-cont_right-particons_avatar" src={avatar_url} />
+         <div className="OnePullReq-cont_right-particons_isverified">
+            <p className={`OnePullReq-cont__right-part__icons__isverified__state${state==="open"?"__open":"__closed"}`}>{state}</p>
+            <img className="OnePullReq-cont_right-particonsisverified_icon"  src={state==="open"? verified:rejected}  />
          </div>
       </div>
-      <div className="OnePullRequest-container__right-part__date">
-         <p className="OnePullRequest-container__right-part__date__content"> Updated At: {date_updated}</p>
+     <div className="OnePullReq-cont_right-part_date">
+         <p className="OnePullReq-cont_right-partdate_content"> Updated At: {date_updated}</p>
       </div>
     </div>
-
-  </div> 
- 
+  </div>
 )
 }

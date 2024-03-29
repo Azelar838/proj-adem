@@ -25,7 +25,7 @@ export default function Commits({ref}:CommitsProps){
               <p className="one-commit-container__head__text">Commits List: </p>
            </div>
            {
-            commits?.(()=>{
+            commits?.map(()=>{
               <div className="one-commit-container__content">
                 <div className="one-commit-container__content__left">
                   <img src="" alt="" />

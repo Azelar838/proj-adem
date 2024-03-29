@@ -1,0 +1,71 @@
+.OnePullReq-cont {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 12px;
+    border: none;
+    align-items: center;
+
+    &_left-part, &_right-part {
+        display: flex;
+        flex-direction: column;
+
+        &__title {
+            font-weight: bold;
+            font-size: 1.15rem;
+            color: white;
+            margin-top: 1rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        &_date, &date_content {
+            color: #626161;
+            font-size: 0.9rem;
+        }
+    }
+
+    &__right-part {
+        &__icons {
+            display: flex;
+            justify-content: space-between;
+
+            &__avatar {
+                border-radius: 50%;
+                width: 2.1rem;
+                height: 2rem;
+                margin-top: 0.5rem;
+                border: 2px dashed white;
+            }
+
+            &__isverified {
+                display: flex;
+                gap: 0.5rem;
+                justify-content: center;
+
+                &__icon {
+                    width: 2rem;
+                    height: 2rem;
+                    margin-bottom: 1rem;
+                    margin-top: 0.5rem;
+                }
+
+                &__state {
+                
+                    &__open {
+                        color: #32ba7c;
+                        font-weight: 500;
+                        font-size: 1rem;
+                        margin-top: 0.75rem;
+    
+                    }
+
+                    &__closed {
+                        color: red;
+                        font-weight: 500;
+                        font-size: 1rem;
+                        margin-top: 0.2rem;
+                    }
+                }
+            }
+        }
+     }
+}
